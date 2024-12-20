@@ -14,7 +14,7 @@ namespace Gestion_banque.entity
         private string libelle;
         private static int numA=1;
         public List<Client>clients  = new List<Client>();
-        public List<Agence> agences = new List<Agence>();
+        public static List<Agence> agences = new List<Agence>();
 
         public Agence()
         {

@@ -15,17 +15,17 @@ namespace Gestion_banque.entity
         {
         }
 
-        public CompteSimple(string tauxDecouvert) : base()
+        public CompteSimple(Client client,string tauxDecouvert) : base(client)
         {
             this.tauxDecouvert = tauxDecouvert;
         }
-        public override string ToString()
+        public override void afficheDetailCompte()
         {
-            return base.ToString() + "Durée : " + TauxDecouvert;
+            Console.WriteLine(
+                "id compte = " + Id +
+                ", numéro compte = " + NumCompte +
+                ", solde = " + Solde +
+                ", Taux = " + TauxDecouvert);
         }
-        //public override string genereNumCompte(Client client)
-        //{
-        //    return numero_compte = "000" + client.Id + client.Tel;
-        //}
     }
 }

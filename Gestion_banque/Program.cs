@@ -26,7 +26,7 @@ namespace Gestion_banque
             {
                 afficheMenuPrincipal();
                 choix = int.Parse(Console.ReadLine());
-                switch (choix) 
+                switch (choix)
                 {
                     case 1:
                         gestionA.crudAgence();
@@ -44,8 +44,13 @@ namespace Gestion_banque
 
             } while (choix != 5);
             //Agence gestionA = new Agence();
+            //Agence ag1 = new Agence();
             //Client gestionC = new Client();
-            //gestionC.crudClient();
+            //Compte compte1 = new Compte();
+            //Client client = new Client(ag1,"dial","mad","78524",compte1);
+            ////client.afficheDetails();
+            //Compte compte = new CompteSimple(client, "5%");
+            //compte.afficheDetailCompte();
         }
     }
 }

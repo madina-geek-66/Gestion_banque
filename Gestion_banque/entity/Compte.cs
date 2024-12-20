@@ -7,13 +7,14 @@ using Gestion_banque.interfaces;
 
 namespace Gestion_banque.entity
 {
-    internal abstract class Compte
+    internal class Compte
     {
         protected int id;
         protected string numero_compte;
         protected float solde;
-        protected Client client {  get; set; }
-        private static int idc;
+        protected Client client;
+        private static int idc=1;
+        public Client Client { get { return client; } set { client = value; } }
         public int Id { get {return id; } set { id = value; } }
         public string NumCompte { get { return numero_compte; } set { numero_compte = value; } }
         public float Solde { get { return solde; } set { solde = value; } }
@@ -23,6 +24,7 @@ namespace Gestion_banque.entity
         }
         public string genereNumCompte(Client client)
         {
+            client = new Client();
             return numero_compte = "000" + client.Id + client.Tel;
         }
 
@@ -35,13 +37,12 @@ namespace Gestion_banque.entity
         }
         
 
-        public override string ToString()
+        public virtual void afficheDetailCompte()
         {
-            return 
-                "id = " + Id + 
+            Console.WriteLine(
+                "id compte = " + Id + 
                 ", numéro compte = " + NumCompte +
-                ", solde = " + Solde 
-                ;
+                ", solde = " + Solde);
         }
 
         public void menu()
@@ -55,16 +56,19 @@ namespace Gestion_banque.entity
         public Compte create()
         {
             Compte compte = null;
+            //Client client = new Client();
             int choix;
-            do { 
-            menu();
+            do {
+                
+                menu();
             choix = int.Parse(Console.ReadLine());
             switch (choix)
             {
                 case 1:
                     Console.Write("Saisir le taux découvert du client : ");
                     string tauxDecouvert = Console.ReadLine();
-                    compte = new CompteSimple(tauxDecouvert);
+                    //Client client = new Client().getClientById();
+                    compte = new CompteSimple(client,tauxDecouvert);
 
                     break;
                 case 2:
@@ -79,7 +83,7 @@ namespace Gestion_banque.entity
                             
                         }
 
-                        compte = new CompteEpargne(duree);
+                        compte = new CompteEpargne(client,duree);
 
                     }
                     catch (FormatException)
@@ -98,7 +102,7 @@ namespace Gestion_banque.entity
 
         public void read(Compte c)
         {
-            c.ToString();
+            c.afficheDetailCompte();
         }
 
         

@@ -14,7 +14,7 @@ namespace Gestion_banque.entity
         {
         }
 
-        public CompteEpargne(int duree) : base()
+        public CompteEpargne(Client client,int duree) : base(client)
         {
             Duree = duree;
             
@@ -22,9 +22,18 @@ namespace Gestion_banque.entity
 
         public int Duree { get { return duree; } set { duree = value; } }
 
-        public override string ToString()
+        //public override string ToString()
+        //{
+        //    return base.ToString() + "Durée : " + Duree;
+        //}
+
+        public override void afficheDetailCompte()
         {
-            return base.ToString() + "Durée : " + Duree;
+            Console.WriteLine(
+                "id compte = " + Id +
+                ", numéro compte = " + NumCompte +
+                ", solde = " + Solde +
+                ", durée = " + Duree);
         }
 
 
