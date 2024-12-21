@@ -9,11 +9,11 @@ namespace Gestion_banque.entity
 {
     internal class Client : ICrud<Client>
     {
-        protected int id;
-        protected string prenom;
-        protected string nom;
-        protected string tel;
-        protected Compte compte = new Compte();
+        private int id;
+        private string prenom;
+        private string nom;
+        private string tel;
+        private Compte compte = new Compte();
         private static Agence agence = new Agence();
         private static int idc=1;
         public Agence Agence { get { return agence; } set { agence = value; } }
